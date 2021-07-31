@@ -1,0 +1,64 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: sans-serif;
+}
+#playText{
+    color: white;
+    font-size: 35px;
+}
+#text{
+    color: purple;
+    font-size: 20px;
+}
+.container{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#gameBoard{
+    width: 235px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.box{
+    height: 75px;
+    width: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 50px;
+}
+button{
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: purple;
+    color: white;
+    border-color: purple;
+    font-size: 18px;
+    transition: 200ms transform;
+    margin: 10px 10px;
+}
+button:hover{
+    cursor: pointer;
+    transform: translateY(-4px);
+}
+input{
+    color: black;
+    font-weight: bold;
+    width: 40px;
+    display: flex;
+}
+#results{
+    width: 200px;
+    display: flex;
+    margin: 20px 20px;
+    align-items: center;
+    justify-content: center;
+
+}
