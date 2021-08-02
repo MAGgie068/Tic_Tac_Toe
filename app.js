@@ -1,5 +1,6 @@
 const boxes = Array.from(document.getElementsByClassName('box'));
 
+let flag = false;
 const nextBtn = document.getElementById('nextBtn');
 const restartBtn = document.getElementById('restartBtn');
 const playText = document.getElementById('text');
@@ -24,11 +25,19 @@ const drawBoard = () => {
             styleString += 'border-top: 3px solid purple;';
         }
         box.style = styleString;
-        box.addEventListener('click', boxClicked)
+        //if(flag === true){
+            box.addEventListener('click', boxClicked)
+        //}
+        //else{
+        //    box.addEventListener('click', boxClicked).disabled
+        //}
     });
 };
 
 const boxClicked = (e) => {
+    if(flag == false){
+        return;
+    }
     const id = e.target.id;
     if(!spaces[id]){
         spaces[id] = currentPlayer;
@@ -42,7 +51,8 @@ const boxClicked = (e) => {
             else if(currentPlayer === X_Text){
                 document.getElementById('x').value++;
             }
-            return;
+            flag = false;
+            //return;
         }
         currentPlayer = currentPlayer === O_Text ? X_Text : O_Text;
     }
@@ -92,6 +102,7 @@ const playerHasWon = () => {
 };
 
 const next = () => {
+    flag = true;
     spaces.forEach((space, index) => {
         spaces[index] = null;
     });
@@ -99,15 +110,17 @@ const next = () => {
         box.innerText = '';
     });
     playText.innerText = "Let's Go!";
-    if(currentPlayer == O_Text){
-        currentPlayer = X_Text
-    }
-    else{
-        currentPlayer = O_Text;
-    }
+    // if(currentPlayer === O_Text){
+    //     currentPlayer = X_Text
+    // }
+    // else{
+    //     currentPlayer = O_Text;
+    // }
+    playText.innerText = "Let's Go!!! " + currentPlayer + " Starts...";
 };
 
 const restart = () => {
+    flag = true;
     spaces.forEach((space, index) => {
         spaces[index] = null;
     });
